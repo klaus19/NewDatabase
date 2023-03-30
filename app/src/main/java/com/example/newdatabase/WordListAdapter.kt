@@ -17,17 +17,17 @@ class WordListAdapter : ListAdapter<Word, WordListAdapter.WordViewHolder>(WordsC
 
     override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
         val current = getItem(position)
-        holder.bind(current.word)
-        holder.bind(current.def)
+        val current1 = getItem(position)
+        holder.bind(current.word,current1.def)
     }
 
     class WordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val wordItemView: TextView = itemView.findViewById(R.id.textView)
         private val deftext:TextView = itemView.findViewById(R.id.text1)
 
-        fun bind(text: String?) {
+        fun bind(text: String?,text1: String?) {
             wordItemView.text = text
-            deftext.text=text
+            deftext.text=text1
         }
 
         companion object {
